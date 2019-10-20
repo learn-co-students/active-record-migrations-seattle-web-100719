@@ -1,6 +1,11 @@
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => "db/artists.sqlite"
+)
+
 task :console do
   require 'irb'
   ARGV.clear
